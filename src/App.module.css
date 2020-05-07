@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.container {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.paper {
+  padding: 16px;
+}
+
+.countryPicker {
+  margin: 16px;
+}
