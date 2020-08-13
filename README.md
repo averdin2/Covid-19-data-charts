@@ -22,4 +22,8 @@ Project was built using Create React App.
 
 Coronavirus information API used can be found here:
 https://covid19.mathdro.id/api/
+<<<<<<< HEAD
 https://covidtracking.com/api/"# Covid-19-data-charts"
+=======
+https://covidtracking.com/api/
+>>>>>>> 368c61add7f54bc9147a052755b73de68706c34b
