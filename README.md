@@ -18,6 +18,8 @@ What I have built is mainly just a minimum viable product for Covid 19 informati
 
 Project was built using Create React App.
 
+Live Site: https://averdin2.github.io/Covid-19-data-charts/
+
 ### Credits
 
 Coronavirus information API used can be found here:
