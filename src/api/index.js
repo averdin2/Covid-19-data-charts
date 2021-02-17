@@ -2,7 +2,9 @@ import axios from 'axios';
 
 const globalURL = 'https://covid19.mathdro.id/api';
 const statesURL = 'https://api.covidtracking.com/v1/states';
-const proxyServer = 'https://cors-anywhere.herokuapp.com/';
+
+// Was using proxy server to fix cors errors
+//const proxyServer = 'https://cors-anywhere.herokuapp.com/';
 
 export const fetchCountryData = async (country) => {
   try {
@@ -28,7 +30,7 @@ export const fetchCountryData = async (country) => {
 
 export const fetchGlobalDailyData = async () => {
   try {
-    const { data } = await axios.get(`${proxyServer}${globalURL}/daily`);
+    const { data } = await axios.get(`${globalURL}/daily`);
 
     const modifiedData = data.map((dailyData) => ({
       confirmed: dailyData.confirmed.total,
@@ -46,7 +48,7 @@ export const fetchCountries = async () => {
   try {
     const {
       data: { countries },
-    } = await axios.get(`${proxyServer}${globalURL}/countries`);
+    } = await axios.get(`${globalURL}/countries`);
 
     return countries.map((country) => country.name);
   } catch (error) {
@@ -56,7 +58,7 @@ export const fetchCountries = async () => {
 
 export const fetchStates = async () => {
   try {
-    const { data } = await axios.get(`${proxyServer}${statesURL}/info.json`);
+    const { data } = await axios.get(`${statesURL}/info.json`);
 
     const modifiedData = data.map((statesInfo) => ({
       state: statesInfo.state,
@@ -71,9 +73,7 @@ export const fetchStates = async () => {
 
 export const fetchStateData = async (state) => {
   try {
-    const { data } = await axios.get(
-      `${proxyServer}${statesURL}/${state}/current.json`
-    );
+    const { data } = await axios.get(`${statesURL}/${state}/current.json`);
 
     // Need to create a stateData variable to convert format of data into an array of objects.
     // Recharts cannot read the data if not formatted this way.

@@ -1,9 +1,16 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Legend, Tooltip, CartesianGrid } from 'recharts';
-
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  ResponsiveContainer,
+  Legend,
+  Tooltip,
+  CartesianGrid,
+} from 'recharts';
 
 export default function LocationChart({ data, country }) {
-
   // let locationData = [];
   // locationData.push(data);
 
@@ -20,11 +27,6 @@ export default function LocationChart({ data, country }) {
         <Bar dataKey="recovered" fill="#82ca9d" />
       </BarChart>
     </ResponsiveContainer>
-    
-  )
-  return (
-    <div>
-      {barChart}
-    </div>
-  )
+  );
+  return <div>{barChart}</div>;
 }
