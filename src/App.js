@@ -6,7 +6,6 @@ import styles from './App.module.css';
 
 import { fetchGlobalDailyData, fetchCountryData, fetchStateData } from './api';
 
-
 export default class App extends Component {
   state = {
     globalData: {},
@@ -15,25 +14,25 @@ export default class App extends Component {
     stateData: {},
     stateName: '',
     stateCode: '',
-  }
- 
+  };
+
   async componentDidMount() {
     const fetchedGlobalDailyData = await fetchGlobalDailyData();
 
-    this.setState({ globalData: fetchedGlobalDailyData })
+    this.setState({ globalData: fetchedGlobalDailyData });
   }
 
   handleCountryChange = async (country) => {
     const fetchedCountryData = await fetchCountryData(country);
 
     this.setState({ countryData: fetchedCountryData, country: country });
-  }
+  };
 
   handleStateChange = async (state) => {
     const fetchedStateData = await fetchStateData(state);
 
     this.setState({ stateData: fetchedStateData, stateCode: state });
-  }
+  };
 
   render() {
     const { globalData, countryData, country, stateData, stateCode } = this.state;
@@ -41,7 +40,7 @@ export default class App extends Component {
       <div>
         <Nav />
         <Container maxWidth="lg" className={styles.container}>
-          <Grid container justify="center"spacing={2}>
+          <Grid container justify="center" spacing={2}>
             <Grid item xs={12} md={8}>
               <Paper className={styles.paper}>
                 <GlobalChart data={globalData} />
@@ -54,16 +53,16 @@ export default class App extends Component {
                 <LocationChart data={countryData} location={country} />
               </Paper>
             </Grid>
-            <Grid item xs={12} md={8} lg={6}>
+            {/* <Grid item xs={12} md={8} lg={6}>
               <Paper className={styles.paper}>
                 <Title>Covid 19 US State Data</Title>
                 <StatePicker handleStateChange={this.handleStateChange} />
                 <LocationChart data={stateData} location={stateCode} />
               </Paper>
-            </Grid>
+            </Grid> */}
           </Grid>
-        </Container>       
+        </Container>
       </div>
-    )
+    );
   }
 }
